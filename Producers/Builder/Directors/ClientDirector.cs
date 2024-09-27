@@ -1,55 +1,61 @@
 ﻿namespace Builder
 {
-    internal class ClientDirector
+    public class ClientDirector
     {
-        List<string> ListIngredients = new List<string> { "Сыр", "Мясо",
-            "Помидор", "Соус", "Листья салата"};
-        List<string> ClientBurger = new List<string>();
-        public void BuildClientBurger(BuilderBurger burger)
+        private List<string> ListIngredients = new List<string> { "Cheese", "Meat",
+            "Tomato", "Sauce", "Salad", "Fish"};
+        private List<string> ClientBurger = new List<string>();
+        public void BuildClientBurger(BuilderBurger burger) 
         {
             foreach (var ingredient in ListIngredients)
             {
-                Console.WriteLine($"Хотите ли вы добавить в бургер {ingredient}? (да/нет)");
+                Console.WriteLine($"would you like to add {ingredient} to the burger? (yes/no)");
                 string Answer = Console.ReadLine().ToLower().Trim();
-                if (Answer == "да")
+                if (Answer == "yes")
                 {
                     switch (ingredient)
                     {
-                        case "Сыр":
+                        case "Cheese":
                             {
                                 burger.WithCheese();
                                 ClientBurger.Add(ingredient);
                                 break;
                             }
-                        case "Мясо":
+                        case "Meat":
                             {
-                                burger.WithMeat();
+                                burger.WithMeat(); 
                                 ClientBurger.Add(ingredient);
                                 break;
                             }
-                        case "Помидор":
+                        case "Tomato":
                             {
                                 burger.WithTomato();
                                 ClientBurger.Add(ingredient);
                                 break;
                             }
-                        case "Соус":
+                        case "Sauce":
                             {
                                 burger.WithSauce();
                                 ClientBurger.Add(ingredient);
                                 break;
                             }
-                        case "Листья салата":
+                        case "Salad":
                             {
                                 burger.WithSalad();
                                 ClientBurger.Add(ingredient);
+                                break;
+                            }
+                        case "Fish":
+                            {
+                                burger.WithFish();
+                                ClientBurger.Add(ingredient); 
                                 break;
                             }
                     }
                 }
             }
         }
-        public List<string> GetClientBurger()
+        public List<string> GetIngredients() 
         {
             return ClientBurger;
         }
