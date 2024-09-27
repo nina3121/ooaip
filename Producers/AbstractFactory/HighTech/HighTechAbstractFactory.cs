@@ -1,6 +1,6 @@
 ﻿namespace AbstractFactory
 {
-    internal class HighTechAbstractFactory : IAbstractFactory
+    internal class HighTechAbstractFactory : IAbstractFactory 
     {
         public IChair CreateChair()
         {
