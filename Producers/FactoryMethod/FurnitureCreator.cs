@@ -2,9 +2,9 @@
 {
     public abstract class FurnitureCreator
     {
-        protected virtual ISofa CreateSofa() { return null; }
-        protected virtual IChair CreateChair() { return null;  }
-        protected virtual IWardrobe CreateWardrobe() { return null; }
+        protected abstract ISofa CreateSofa();
+        protected abstract IChair CreateChair();
+        protected abstract IWardrobe CreateWardrobe();
         public string CreateSofaFurniture() 
         {
             Console.WriteLine("Делаем диван");
@@ -17,7 +17,7 @@
             var chair = CreateChair();
             return chair.Print();
         }
-        public string CreateWardrobeFurniture()
+        public string CreateWardrobeFurniture() 
         {
             Console.WriteLine("Делаем шкаф");
             var wardrobe = CreateWardrobe();
