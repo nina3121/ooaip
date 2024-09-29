@@ -1,6 +1,6 @@
 ﻿namespace Builder
 {
-    public class TestBuilderBurger
+    public class TestBuilderBurger : IBurgerBuilder
     {
         private readonly List<string> _ingredients;
         public TestBuilderBurger() 

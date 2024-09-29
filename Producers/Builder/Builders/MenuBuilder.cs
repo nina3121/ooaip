@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Builder
 {
-    public class MenuBuilder
+    public class MenuBuilder : IBurgerBuilder
     {
         private readonly List<string> _ingredients;
         public MenuBuilder() 
