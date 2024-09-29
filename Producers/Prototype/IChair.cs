@@ -9,5 +9,6 @@ namespace Prototype
     public interface IChair
     {
         void GetChair();
+        IChair Clone();
     }
 }

@@ -8,17 +8,44 @@ namespace Prototype
 {
     public class HighTechAbstractFactory : IAbstractFactory
     {
+        private IChair _chairPrototype;
+        private ISofa _sofaPrototype;
+        private IWardrobe _wardrobePrototype;
+        public void SetChairPrototype(IChair prototype)
+        {
+            _chairPrototype = prototype;
+        }
+        public void SetSofaPrototype(ISofa prototype)
+        {
+            _sofaPrototype = prototype;
+        }
+        public void SetWardrobePrototype(IWardrobe prototype)
+        {
+            _wardrobePrototype = prototype;
+        }
         public IChair CreateChair()
         {
-            return new HighTechChair();
+            if (_chairPrototype == null)
+            {
+                throw new InvalidOperationException();
+            }
+            return _chairPrototype.Clone();
         }
         public ISofa CreateSofa()
         {
-            return new HighTechSofa();
+            if (_sofaPrototype == null)
+            {
+                throw new InvalidOperationException();
+            }
+            return _sofaPrototype.Clone();
         }
         public IWardrobe CreateWardrobe()
         {
-            return new HighTechWardrobe();
+            if (_wardrobePrototype == null)
+            {
+                throw new InvalidOperationException();
+            }
+            return _wardrobePrototype.Clone();
         }
     }
 }

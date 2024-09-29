@@ -9,5 +9,6 @@ namespace Prototype
     public interface IWardrobe
     {
         void GetWardrobe();
+        IWardrobe Clone();
     }
 }

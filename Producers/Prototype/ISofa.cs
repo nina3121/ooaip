@@ -9,5 +9,6 @@ namespace Prototype
     public interface ISofa
     {
         void GetSofa();
+        ISofa Clone();
     }
 }
