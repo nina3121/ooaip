@@ -9,17 +9,10 @@ namespace Prototype
 {
     public class LoftWardrobe : IWardrobe
     {
-        public string Material { get; set; }
-        public int Size { get; set; }
-        public LoftWardrobe(string material, int size)
-        {
-            Material = material;
-            Size = size;
-        }
         public void GetWardrobe() { }
         public IWardrobe Clone()
         {
-            return new LoftWardrobe(Material, Size);
+            return new LoftWardrobe();
         }
     }
 }

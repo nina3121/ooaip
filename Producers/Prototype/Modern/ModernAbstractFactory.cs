@@ -11,15 +11,15 @@ namespace Prototype.Modern
         private IChair _chairPrototype;
         private ISofa _sofaPrototype;
         private IWardrobe _wardrobePrototype;
-        public void SetChairPrototype(IChair prototype)
+        public void SetChair(IChair prototype) 
         {
             _chairPrototype = prototype;
         }
-        public void SetSofaPrototype(ISofa prototype)
+        public void SetSofa(ISofa prototype)
         {
             _sofaPrototype = prototype;
         }
-        public void SetWardrobePrototype(IWardrobe prototype)
+        public void SetWardrobe(IWardrobe prototype) 
         {
             _wardrobePrototype = prototype;
         }
