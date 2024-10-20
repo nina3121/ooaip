@@ -11,40 +11,22 @@ namespace Prototype.Modern
         private IChair _chairPrototype;
         private ISofa _sofaPrototype;
         private IWardrobe _wardrobePrototype;
-        public void SetChair(IChair prototype) 
+        public ModernAbstractFactory(ModernChair chair, ModernSofa sofa, ModernWardrobe wardrobe)
         {
-            _chairPrototype = prototype;
-        }
-        public void SetSofa(ISofa prototype)
-        {
-            _sofaPrototype = prototype;
-        }
-        public void SetWardrobe(IWardrobe prototype) 
-        {
-            _wardrobePrototype = prototype;
+            _chairPrototype = chair == null ? throw new ArgumentNullException() : chair;
+            _sofaPrototype = sofa == null ? throw new ArgumentNullException() : sofa;
+            _wardrobePrototype = wardrobe == null ? throw new ArgumentNullException() : wardrobe;
         }
         public IChair CreateChair()
         {
-            if (_chairPrototype == null)
-            {
-                throw new InvalidOperationException();
-            }
             return _chairPrototype.Clone();
         }
         public ISofa CreateSofa()
         {
-            if (_sofaPrototype == null)
-            {
-                throw new InvalidOperationException();
-            }
             return _sofaPrototype.Clone();
         }
         public IWardrobe CreateWardrobe()
         {
-            if (_wardrobePrototype == null)
-            {
-                throw new InvalidOperationException();
-            }
             return _wardrobePrototype.Clone();
         } 
     }

@@ -10,10 +10,11 @@ namespace Prototype
     {
         public void UsePrototype()
         {
+            var chair = new HighTechChair();
             var sofa = new HighTechSofa();
-            var highTechSofa = new HighTechAbstractFactory();
-            highTechSofa.SetSofa(sofa);
-            var clonedSofa = highTechSofa.CreateSofa();
+            var wardrobe = new HighTechWardrobe();
+            var highTech = new HighTechAbstractFactory(chair, sofa, wardrobe);
+            var clonedSofa = highTech.CreateSofa();
             clonedSofa.GetSofa();
         }
     }
