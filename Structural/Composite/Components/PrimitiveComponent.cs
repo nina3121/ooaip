@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Composite
+namespace Composite.Components
 {
     public class PrimitiveComponent : IComponent
     {
         private double _value;
 
-        public PrimitiveComponent (double value)
+        public PrimitiveComponent(double value)
         {
-            this._value = value;
+            _value = value;
         }
 
         public IEnumerable<double> GetValue()
