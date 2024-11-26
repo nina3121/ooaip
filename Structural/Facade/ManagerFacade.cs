@@ -13,11 +13,12 @@ namespace Facede
         protected Backend _backender;
         protected Frontend _frontender; 
 
-        public ManagerFacade (Design design, Backend backend, Frontend frontend)
+        public ManagerFacade(Design design, Backend backend, Frontend frontend)
         {
-            this._designer = design;
-            this._backender = backend;
-            this._frontender = frontend;
+
+            _designer = design == null ? throw new ArgumentNullException() : design;
+            _backender = backend == null ? throw new ArgumentNullException() : backend;
+            _frontender = frontend == null ? throw new ArgumentNullException() : frontend;
         }
 
         public void AddButton()
