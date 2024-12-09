@@ -1,4 +1,4 @@
-﻿using Facede.FacadeClasses;
+﻿using Facade.FacadeClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace Facede
     {
         protected Design _designer;
         protected Backend _backender;
-        protected Frontend _frontender; 
+        protected Frontend _frontender;
 
         public ManagerFacade(Design design, Backend backend, Frontend frontend)
         {
@@ -30,7 +30,7 @@ namespace Facede
 
         public void FixUI()
         {
-            _designer.Redraw(); 
+            _designer.Redraw();
             _frontender.Fix();
         }
 
