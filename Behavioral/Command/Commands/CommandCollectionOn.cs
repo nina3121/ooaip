@@ -8,7 +8,7 @@ namespace Command.Commands
 {
     public class CommandCollectionOn : ICommand
     {
-        private readonly ICommand[] commandsOn;
+        private readonly ICommand[] _commandsOn;
         private LightCommandOn _light;
         private ProjectorCommandOn _projector;
         private ScreenCommandUp _screen;
