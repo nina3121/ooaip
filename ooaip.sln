@@ -35,9 +35,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Behavioral", "Behavioral", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Command", "Behavioral\Command\Command.csproj", "{C9FF955B-97DF-4824-BC0B-B56A60465ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility", "Behavioral\ChainOfResponsibility\ChainOfResponsibility.csproj", "{8D27E2E4-3A1F-41E4-A46B-B2575526CB5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainOfResponsibility", "Behavioral\ChainOfResponsibility\ChainOfResponsibility.csproj", "{8D27E2E4-3A1F-41E4-A46B-B2575526CB5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "Behavioral\Strategy\Strategy.csproj", "{7EE684EA-6F67-413A-BCCB-1C8CA6F2989F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Strategy", "Behavioral\Strategy\Strategy.csproj", "{7EE684EA-6F67-413A-BCCB-1C8CA6F2989F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediator", "Behavioral\Mediator\Mediator.csproj", "{8E9DA831-CCAF-4C41-8BDC-DF7146136334}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,10 @@ Global
 		{7EE684EA-6F67-413A-BCCB-1C8CA6F2989F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EE684EA-6F67-413A-BCCB-1C8CA6F2989F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EE684EA-6F67-413A-BCCB-1C8CA6F2989F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E9DA831-CCAF-4C41-8BDC-DF7146136334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E9DA831-CCAF-4C41-8BDC-DF7146136334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9DA831-CCAF-4C41-8BDC-DF7146136334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9DA831-CCAF-4C41-8BDC-DF7146136334}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +126,7 @@ Global
 		{C9FF955B-97DF-4824-BC0B-B56A60465ECE} = {C2C5450E-AF75-4E2B-A0D1-8C79B8987C4E}
 		{8D27E2E4-3A1F-41E4-A46B-B2575526CB5D} = {C2C5450E-AF75-4E2B-A0D1-8C79B8987C4E}
 		{7EE684EA-6F67-413A-BCCB-1C8CA6F2989F} = {C2C5450E-AF75-4E2B-A0D1-8C79B8987C4E}
+		{8E9DA831-CCAF-4C41-8BDC-DF7146136334} = {C2C5450E-AF75-4E2B-A0D1-8C79B8987C4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2E4F81D2-D5D4-416D-82A1-5C3CBFE4A5E5}
