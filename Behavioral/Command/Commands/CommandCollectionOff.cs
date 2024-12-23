@@ -6,30 +6,18 @@ using System.Threading.Tasks;
 
 namespace Command.Commands
 {
-    public class CommandCollectionOff : ICommand
+    public class CommandCollectionOnOff : ICommand
     {
         private readonly ICommand[] _commandsOff;
-        private LightCommandOff _light;
-        private ProjectorCommandOff _projector;
-        private ScreenCommandDown _screen;
-        private AcousticsCommandOff _acoustics;
 
-        public CommandCollectionOff(LightCommandOff light, ProjectorCommandOff projector, ScreenCommandDown screen, AcousticsCommandOff acoustics)
+        public CommandCollectionOnOff(ICommand[] commands)
         {
-            if (light == null || projector == null || screen == null || acoustics == null)
-            {
-                throw new ArgumentNullException();
-            }
-            _light = light;
-            _projector = projector;
-            _screen = screen;
-            _acoustics = acoustics;
-            commandsOff = new ICommand[] { light, projector, screen, acoustics };
+            _commandsOff = commands;
         }
 
         public void Execute()
         {
-            foreach (var command in commandsOff)
+            foreach (var command in _commandsOff)
             {
                 command.Execute();
             }
@@ -37,7 +25,7 @@ namespace Command.Commands
 
         public void Undo()
         {
-            foreach (var command in commandsOff)
+            foreach (var command in _commandsOff)
             {
                 command.Undo();
             }

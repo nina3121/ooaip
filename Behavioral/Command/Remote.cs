@@ -41,71 +41,20 @@ namespace Command
             CommandCollectionOn commandCollectionOn = new CommandCollectionOn(lightCommandOn, projectorCommandOn, screenCommandUp, acousticsCommandOn);
             CommandCollectionOff commandCollectionOff = new CommandCollectionOff(lightCommandOff, projectorCommandOff, screenCommandDown, acousticsCommandOff);
 
-            _commandsOn = new ICommand[] {lightCommandOn, teapotCommandOn, commandCollectionOn};
-            _commandsOff = new ICommand[] {lightCommandOff, teapotCommandOff, commandCollectionOff};
+            _commandsOn = new ICommand[] { lightCommandOn, teapotCommandOn, commandCollectionOn };
+            _commandsOff = new ICommand[] { lightCommandOff, teapotCommandOff, commandCollectionOff };
         }
 
         public void On(int set)
         {
-            switch (set)
-            {
-                case 1:
-                    {
-                        _commandsOn[0].Execute();
-                        _history.Push(_commandsOn[0]);
-                        break;
-                    }
-                    case 2:
-                    {
-                        _commandsOn[1].Execute();
-                        _history.Push(_commandsOn[1]);
-                        break;
-                    }
-                    case 3:
-                    {
-                        _commandsOn[2].Execute();
-                        _history.Push(_commandsOn[2]);
-                        break;
-                    }
-            }
+            _commandsOn[set].Execute();
+            _history.Push(_commandsOff[set]);
         }
 
         public void Off(int set)
         {
-            switch (set)
-            {
-                case 1:
-                    {
-                        _commandsOff[0].Execute();
-                        _history.Push(_commandsOff[0]);
-                        break;
-                    }
-                    case 2:
-                    {
-                        _commandsOff[1].Execute();
-                        _history.Push(_commandsOff[1]);
-                        break;
-                    }
-                    case 3:
-                    {
-                        _commandsOff[2].Execute();
-                        _history.Push(_commandsOff[2]);
-                        break;
-                    }
-            }
-        }
-
-        public void Undo()
-        {
-            if (_history.Count > 0)
-            {
-                var lastCommand = _history.Pop();
-                lastCommand.Undo();
-            }
-            else
-            {
-                Console.WriteLine("there's no commands");
-            }
+            _commandsOff[set].Execute();
+            _history.Push(_commandsOn[set]);
         }
     }
 }
