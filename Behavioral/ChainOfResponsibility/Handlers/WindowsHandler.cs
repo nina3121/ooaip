@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChainOfResponsibility
+namespace ChainOfResponsibility.Handlers
 {
     public class WindowsHandler : IHandler
     {
