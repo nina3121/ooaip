@@ -9,7 +9,5 @@ namespace ChainOfResponsibility
     public interface IHandler
     {
         object Handle(object handler);
-
-        IHandler SetHandler(IHandler handler);
     }
 }

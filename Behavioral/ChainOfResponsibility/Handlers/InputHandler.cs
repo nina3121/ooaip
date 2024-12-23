@@ -8,11 +8,18 @@ namespace ChainOfResponsibility.Handlers
 {
     public class InputHandler : WindowsHandler
     {
+        private IHandler _handler;
+
+        public InputHandler(IHandler handler) : base(handler)
+        {
+            _handler = handler == null ? throw new ArgumentNullException(nameof(handler)) : handler;
+        }
+
         public override object Handle(object handler)
         {
             if (handler?.ToString() == "Input")
             {
-                return "InputHandler обрботал запрос";
+                return "InputHandler обработал запрос";
             }
             return base.Handle(handler);
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChainOfResponsibility.Handlers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,7 @@ namespace ChainOfResponsibility
     {
         public void DoSomething()
         {
-            var buttonHandler = new ButtonHandler();
-            var viewFirstHandler = new ViewFirstHandler();
-            var windowsHandler = new WindowsHandler();
-
-            buttonHandler.SetHandler(viewFirstHandler).SetHandler(windowsHandler);
+            var buttonHandler = new ButtonHandler(new ViewFirstHandler(new WindowsHandler(null)));
 
             Console.WriteLine(buttonHandler.Handle("ViewFirst"));
             Console.WriteLine(buttonHandler.Handle("Output"));

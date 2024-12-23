@@ -10,10 +10,9 @@ namespace ChainOfResponsibility
     {
         private IHandler _handler;
 
-        public IHandler SetHandler(IHandler handler)
+        public WindowsHandler(IHandler handler)
         {
             _handler = handler;
-            return handler;
         }
 
         public virtual object Handle(object handler)
