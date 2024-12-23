@@ -13,14 +13,14 @@ namespace Mediator
 
         public Calendar(Mediator mediator, DateTime date)
         {
-            this._mediator = mediator;
-            this._date = date;
+            this._mediator = mediator == null ? throw new ArgumentNullException(nameof(mediator)) : mediator;
+            this._date = date == null ? throw new ArgumentNullException(nameof(date)) : date; ;
         }
 
         public void CalendarHandler()
         {
             int whichDay = ((int)_date.DayOfWeek == 0 || (int)_date.DayOfWeek == 6) ? 1 : 0;
-            _mediator.Notify("Calendar", whichDay);
+            _mediator.Notify("Calendar");
         }
     }
 }

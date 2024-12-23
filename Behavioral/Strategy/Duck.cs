@@ -12,15 +12,15 @@ namespace Strategy
 {
     public abstract class Duck
     {
-        protected IFly _fly;
-        protected ISwim _swim;
-        protected ICrack _crack;
+        private IFly _fly;
+        private ISwim _swim;
+        private ICrack _crack;
 
         public Duck(IFly fly, ISwim swim, ICrack crack)
         {
-            _fly = fly == null ? throw new ArgumentNullException() : fly;
-            _swim = swim == null ? throw new ArgumentNullException() : swim;
-            _crack = crack == null ? throw new ArgumentNullException() : crack;
+            _fly = fly == null ? throw new ArgumentNullException(nameof(fly)) : fly;
+            _swim = swim == null ? throw new ArgumentNullException(nameof(swim)) : swim;
+            _crack = crack == null ? throw new ArgumentNullException(nameof(crack)) : crack;
         }
 
         public string ToFly()
@@ -36,21 +36,6 @@ namespace Strategy
         public string ToCrack()
         {
             return _crack.Crack();
-        }
-
-        public void SetFly(IFly fly)
-        {
-            _fly = fly;
-        }
-
-        public void SetSwim(ISwim swim)
-        {
-            _swim = swim;
-        }
-
-        public void SetCrack(ICrack crack)
-        {
-            _crack = crack;
         }
     }
 }

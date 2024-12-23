@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Memento
+namespace Mediator
 {
-    public interface IMemento
+    public interface IRequest
     {
-        string GetState();
+        void Execute();
     }
 }

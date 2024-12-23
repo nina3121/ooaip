@@ -12,7 +12,7 @@ namespace ChainOfResponsibility.Handlers
 
         public WindowsHandler(IHandler handler)
         {
-            _handler = handler;
+            _handler = handler == null ? throw new ArgumentNullException(nameof(handler)) : handler;
         }
 
         public virtual object Handle(object handler)

@@ -20,7 +20,7 @@ namespace Mediator
             for (int i = 0; i < 24; i++)
             {
                 Console.WriteLine($"now is {i} hours");
-                _mediator.Notify("Alarm", i);
+                _mediator.Notify("Alarm");
             }
         }
     }

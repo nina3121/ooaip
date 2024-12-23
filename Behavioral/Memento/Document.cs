@@ -9,7 +9,6 @@ namespace Memento
     public class Document
     {
         private string _value;
-        private IMemento _memento;
 
         public Document(string value)
         {
@@ -18,7 +17,7 @@ namespace Memento
 
         public void SetMemento(IMemento memento)
         {
-            _memento = memento;
+            _value = memento.GetState();
         }
 
         public IMemento CreateMemento()
