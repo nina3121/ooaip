@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Observer
+namespace Observer.Sublects
 {
     public class TheNewYorkTimes : ISubject
     {
@@ -18,7 +18,7 @@ namespace Observer
         public void Detach(IObserver observer)
         {
             _observers.Remove(observer);
-        }   
+        }
 
         public void Notify()
         {
