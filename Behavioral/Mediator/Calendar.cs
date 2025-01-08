@@ -8,19 +8,17 @@ namespace Mediator
 {
     public class Calendar
     {
-        private Mediator _mediator;
-        private DateTime _date;
+        private DateOnly _date;
 
-        public Calendar(Mediator mediator, DateTime date)
+        public Calendar(DateOnly date)
         {
-            this._mediator = mediator == null ? throw new ArgumentNullException(nameof(mediator)) : mediator;
             this._date = date == null ? throw new ArgumentNullException(nameof(date)) : date; ;
         }
 
-        public void CalendarHandler()
+        public int CalendarHandler()
         {
             int whichDay = ((int)_date.DayOfWeek == 0 || (int)_date.DayOfWeek == 6) ? 1 : 0;
-            _mediator.Notify("Calendar");
+            return whichDay;
         }
     }
 }

@@ -10,8 +10,13 @@ namespace Mediator
     {
         public void WaterPlants()
         {
-
-            Console.WriteLine("watering the plants");
+            for (int i = 1; i < 25; i++)
+            {
+                if (i % 6 == 0)
+                {
+                    Console.WriteLine("watering the plants");
+                }
+            }
         }
     }
 }

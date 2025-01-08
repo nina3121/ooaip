@@ -15,7 +15,7 @@ namespace Memento
         public DocumentMemento(string state)
         {
             _state = state;
-            _date = DateTime.Now;
+            _date = DateTime.UtcNow;
         }
 
         public string GetDate()
@@ -26,11 +26,6 @@ namespace Memento
         public string GetState()
         {
             return _state;
-        }
-
-        public void SetState(string state)
-        {
-            _state = state;
         }
     }
 }

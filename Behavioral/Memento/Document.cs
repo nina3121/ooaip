@@ -17,7 +17,7 @@ namespace Memento
 
         public void SetMemento(IMemento memento)
         {
-            _value = memento.GetState();
+            _value = ((DocumentMemento)memento).GetState();
         }
 
         public IMemento CreateMemento()

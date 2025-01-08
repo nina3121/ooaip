@@ -9,22 +9,9 @@ namespace Mediator
 {
     public class Mediator
     {
-        private Alarm _alarm;
-        private CoffeeMachine _coffeeMachine;
-        private Calendar _calendar;
-        private IrrigationSystem _irrigationSystem;
-
-        public Mediator(Alarm alarm, CoffeeMachine coffeeMachine, Calendar calendar, IrrigationSystem irrigationSystem)
+        public void Notify(IRequest request)
         {
-            _alarm = alarm;
-            _coffeeMachine = coffeeMachine;
-            _calendar = calendar;
-            _irrigationSystem = irrigationSystem;
-        }
-
-        public void Notify(string sender)
-        {
-            
+            request.Execute();
         }
     }
 }

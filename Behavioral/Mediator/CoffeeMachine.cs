@@ -11,7 +11,13 @@ namespace Mediator
     {
         public void MakeCoffee()
         {
-            Console.WriteLine("making a coffee");
+            for (int i = 0; i < 24; i++)
+            {
+                if (i == 8)
+                {
+                    Console.WriteLine("making a coffee");
+                }
+            }
         }
     }
 }
