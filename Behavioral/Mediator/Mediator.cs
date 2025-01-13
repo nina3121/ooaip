@@ -11,7 +11,16 @@ namespace Mediator
     {
         public void Notify(IRequest request)
         {
-            request.Execute();
+            if (request is IrrigationSystemRequest irrigationSystemRequest)
+            {
+                irrigationSystemRequest.Alarm.AlarmHandler();
+                irrigationSystemRequest.IrrigationSystem.WaterPlants();
+            }
+            else if (request is CoffeeRequest coffeeMachineRequest)
+            {
+                coffeeMachineRequest.CoffeeMachine.MakeCoffee();
+                coffeeMachineRequest.Alarm.AlarmHandler();
+            }
         }
     }
 }

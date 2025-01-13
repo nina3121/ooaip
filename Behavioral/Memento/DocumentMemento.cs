@@ -18,9 +18,9 @@ namespace Memento
             _date = DateTime.UtcNow;
         }
 
-        public string GetDate()
+        public DateTime GetDate()
         {
-            return _date.ToShortDateString();
+            return _date;
         }
 
         public string GetState()

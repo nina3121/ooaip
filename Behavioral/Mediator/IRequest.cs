@@ -8,6 +8,6 @@ namespace Mediator
 {
     public interface IRequest
     {
-        void Execute();
+        
     }
 }

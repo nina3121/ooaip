@@ -10,16 +10,17 @@ namespace Mediator
     {
         public void DoСhores()
         {
+            Mediator mediator = new Mediator(); 
             CoffeeMachine machine = new CoffeeMachine();
             Alarm alarm = new Alarm();
             Calendar calendar = new Calendar(new DateOnly(2024, 12, 19));
 
-            RequestCoffee requestCoffee = new RequestCoffee(machine, alarm, calendar);
-            requestCoffee.Execute();
+            CoffeeRequest requestCoffee = new CoffeeRequest(machine, alarm, calendar);
+            mediator.Notify(requestCoffee);
 
             IrrigationSystem irrigationSystem = new IrrigationSystem();
-            RequestIrrigationSystem requestIrrigationSystem = new RequestIrrigationSystem(alarm, irrigationSystem);
-            requestIrrigationSystem.Execute();  
+            IrrigationSystemRequest requestIrrigationSystem = new IrrigationSystemRequest(alarm, irrigationSystem);
+            mediator.Notify(requestIrrigationSystem);
         }
     }
 }

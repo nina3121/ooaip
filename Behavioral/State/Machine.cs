@@ -15,11 +15,6 @@ namespace State
             _state = new TossACoinState();
         }
 
-        public void SetState(IMachineState state)
-        {
-            _state = state;
-        }
-
         public void TossACoin()
         {
             _state = _state.TossACoin();
