@@ -8,7 +8,7 @@ namespace Mediator
 {
     public class Alarm
     {
-        public void AlarmHandler()
+        public void AlarmHandler(IRequest request)
         {
             for (int i = 0; i < 24; i++)
             {

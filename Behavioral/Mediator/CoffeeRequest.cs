@@ -8,19 +8,16 @@ namespace Mediator
 {
     public class CoffeeRequest : IRequest
     {
-        private CoffeeMachine _machine;
-        private Alarm _alarm;
-        private Calendar _calendar;
+        private TimeOnly _time;
 
-        public CoffeeRequest(CoffeeMachine machine, Alarm alarm, Calendar calendar)
+        public CoffeeRequest(TimeOnly time)
         {
-            _machine = machine == null ? throw new ArgumentNullException(nameof(machine)) : machine;
-            _alarm = alarm == null ? throw new ArgumentNullException(nameof(alarm)) : alarm;
-            _calendar = calendar == null ? throw new ArgumentNullException(nameof(calendar)) : calendar;
+            _time = time;
         }
 
-        public CoffeeMachine CoffeeMachine => _machine;
-        public Alarm Alarm => _alarm;
-        public Calendar Calendar => _calendar;
+        public TimeOnly GetTime()
+        {
+            return _time;    
+        }
     }
 }

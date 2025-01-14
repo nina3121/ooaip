@@ -4,22 +4,36 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Mediator
 {
     public class Mediator
     {
-        public void Notify(IRequest request)
+        private IrrigationSystem _irrigationSystem;
+        private Alarm _alarm;
+        private CoffeeMachine _coffeeMachine;
+        private Calendar _calendar;
+
+        public Mediator()
         {
+            _irrigationSystem = new IrrigationSystem();
+            _alarm = new Alarm();
+            _coffeeMachine = new CoffeeMachine();
+            _calendar = new Calendar(new DateOnly(2002, 12, 19));
+        }
+
+        public void Handle(IRequest request)
+        {
+            if (request is CoffeeRequest coffeeRequest)
+            {
+                _coffeeMachine.CoffeeHandler(coffeeRequest);
+                _alarm.AlarmHandler(coffeeRequest);
+            }
             if (request is IrrigationSystemRequest irrigationSystemRequest)
             {
-                irrigationSystemRequest.Alarm.AlarmHandler();
-                irrigationSystemRequest.IrrigationSystem.WaterPlants();
-            }
-            else if (request is CoffeeRequest coffeeMachineRequest)
-            {
-                coffeeMachineRequest.CoffeeMachine.MakeCoffee();
-                coffeeMachineRequest.Alarm.AlarmHandler();
+                _calendar.CalendarHandler(irrigationSystemRequest);
+                _irrigationSystem.IrrigationSystemHandler(irrigationSystemRequest);
             }
         }
     }

@@ -8,14 +8,11 @@ namespace Mediator
 {
     public class IrrigationSystem
     {
-        public void WaterPlants()
+        public void IrrigationSystemHandler(IRequest request)
         {
-            for (int i = 1; i < 25; i++)
+            if (((IrrigationSystemRequest)request).GetTime().Hour % 6 == 0 && ((CalendarRequest)request).IsDayOff())
             {
-                if (i % 6 == 0)
-                {
-                    Console.WriteLine("watering the plants");
-                }
+                Console.WriteLine("watering the plants");
             }
         }
     }

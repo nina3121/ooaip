@@ -9,14 +9,11 @@ namespace Mediator
 {
     public class CoffeeMachine
     {
-        public void MakeCoffee()
+        public void CoffeeHandler(IRequest request)
         {
-            for (int i = 0; i < 24; i++)
+            if (((CoffeeRequest)request).GetTime().Hour == 8)
             {
-                if (i == 8)
-                {
-                    Console.WriteLine("making a coffee");
-                }
+                Console.WriteLine("making a coffee");
             }
         }
     }

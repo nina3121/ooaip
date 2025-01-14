@@ -15,7 +15,7 @@ namespace Mediator
             this._date = date == null ? throw new ArgumentNullException(nameof(date)) : date; ;
         }
 
-        public int CalendarHandler()
+        public int CalendarHandler(IRequest request)
         {
             int whichDay = ((int)_date.DayOfWeek == 0 || (int)_date.DayOfWeek == 6) ? 1 : 0;
             return whichDay;
