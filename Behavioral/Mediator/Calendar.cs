@@ -9,16 +9,18 @@ namespace Mediator
     public class Calendar
     {
         private DateOnly _date;
+        private Mediator _mediator;
 
-        public Calendar(DateOnly date)
+        public Calendar(DateOnly date, Mediator mediator)
         {
-            this._date = date == null ? throw new ArgumentNullException(nameof(date)) : date; ;
+            this._date = date == null ? throw new ArgumentNullException(nameof(date)) : date;
+            _mediator = mediator == null ? throw new ArgumentNullException(nameof(mediator)) : mediator;
         }
 
-        public int CalendarHandler(IRequest request)
+        public void MakeARequest()
         {
-            int whichDay = ((int)_date.DayOfWeek == 0 || (int)_date.DayOfWeek == 6) ? 1 : 0;
-            return whichDay;
+            CalendarRequest calendarRequest = new CalendarRequest(DateOnly.FromDateTime(DateTime.Now));
+            _mediator.Handle(calendarRequest);
         }
     }
 }
