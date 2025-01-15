@@ -35,6 +35,10 @@ namespace Mediator
                 _calendar.CalendarHandler(irrigationSystemRequest);
                 _irrigationSystem.IrrigationSystemHandler(irrigationSystemRequest);
             }
+            if (request is AlarmRequest alarmRequest)
+            {
+                _coffeeMachine.CoffeeHandler(alarmRequest);
+            }
         }
     }
 }

@@ -8,12 +8,18 @@ namespace Mediator
 {
     public class Alarm
     {
+        private Mediator _mediator;
+
+        public void MakeARequest()
+        {
+            AlarmRequest alarmRequest = new AlarmRequest(new DateTime(2000, 3, 12));
+            _mediator.Handle(alarmRequest);
+        }
+
         public void AlarmHandler(IRequest request)
         {
-            for (int i = 0; i < 24; i++)
-            {
-                Console.WriteLine($"now is {i} hours");
-            }
+            DateTime time = ((AlarmRequest)request).GetTime();
+            Console.WriteLine($"now is {time.Hour} hours");
         }
     }
 }
