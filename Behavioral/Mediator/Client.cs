@@ -11,8 +11,8 @@ namespace Mediator
        public void DoСhores()
         {
             Mediator mediator = new Mediator();
-            IrrigationSystemRequest irrigationSystemRequest = new IrrigationSystemRequest(new TimeOnly(12, 0, 0));
-            mediator.Handle(irrigationSystemRequest);
+            CalendarRequest calendarRequest = new CalendarRequest(DateOnly.FromDateTime(DateTime.Now));
+            mediator.Handle(calendarRequest);
         }
     }
 }

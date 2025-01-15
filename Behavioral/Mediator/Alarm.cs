@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Mediator
 {
@@ -10,16 +11,15 @@ namespace Mediator
     {
         private Mediator _mediator;
 
-        public void MakeARequest()
+        public Alarm(Mediator mediator)
         {
-            AlarmRequest alarmRequest = new AlarmRequest(new DateTime(2000, 3, 12));
-            _mediator.Handle(alarmRequest);
+            _mediator = mediator == null ? throw new ArgumentNullException(nameof(mediator)) : mediator;
         }
 
-        public void AlarmHandler(IRequest request)
+        public void MakeARequest()
         {
-            DateTime time = ((AlarmRequest)request).GetTime();
-            Console.WriteLine($"now is {time.Hour} hours");
+            AlarmRequest alarmRequest = new AlarmRequest(DateTime.Now);
+            _mediator.Handle(alarmRequest);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Mediator
     {
         public void IrrigationSystemHandler(IRequest request)
         {
-            if (((IrrigationSystemRequest)request).GetTime().Hour % 6 == 0 && ((CalendarRequest)request).IsDayOff())
+            if (((AlarmRequest)request).GetTime().Hour % 6 == 0 && ((CalendarRequest)request).IsDayOff())
             {
                 Console.WriteLine("watering the plants");
             }

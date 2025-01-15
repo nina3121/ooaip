@@ -9,9 +9,9 @@ namespace Mediator
 {
     public class CoffeeMachine
     {
-        public void CoffeeHandler(IRequest request)
+        public void CoffeeHandler(AlarmRequest request)
         {
-            if (((CoffeeRequest)request).GetTime().Hour == 8)
+            if (request.GetTime().Hour == 8)
             {
                 Console.WriteLine("making a coffee");
             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mediator
 {
-    public class CalendarRequest
+    public class CalendarRequest : IRequest
     {
         private DateOnly _date;
 

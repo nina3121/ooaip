@@ -11,29 +11,19 @@ namespace Mediator
     public class Mediator
     {
         private IrrigationSystem _irrigationSystem;
-        private Alarm _alarm;
         private CoffeeMachine _coffeeMachine;
-        private Calendar _calendar;
 
         public Mediator()
         {
             _irrigationSystem = new IrrigationSystem();
-            _alarm = new Alarm();
             _coffeeMachine = new CoffeeMachine();
-            _calendar = new Calendar(new DateOnly(2002, 12, 19));
         }
 
         public void Handle(IRequest request)
         {
-            if (request is CoffeeRequest coffeeRequest)
+            if (request is CalendarRequest calendarRequest)
             {
-                _coffeeMachine.CoffeeHandler(coffeeRequest);
-                _alarm.AlarmHandler(coffeeRequest);
-            }
-            if (request is IrrigationSystemRequest irrigationSystemRequest)
-            {
-                _calendar.CalendarHandler(irrigationSystemRequest);
-                _irrigationSystem.IrrigationSystemHandler(irrigationSystemRequest);
+                _irrigationSystem.IrrigationSystemHandler(calendarRequest);
             }
             if (request is AlarmRequest alarmRequest)
             {
