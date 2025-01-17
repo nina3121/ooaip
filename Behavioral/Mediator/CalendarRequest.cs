@@ -14,10 +14,5 @@ namespace Mediator
         {
             Date = date;   
         }
-
-        public bool IsDayOff()
-        {
-            return Date.DayOfWeek != DayOfWeek.Saturday && Date.DayOfWeek != DayOfWeek.Sunday;
-        }
     }
 }
