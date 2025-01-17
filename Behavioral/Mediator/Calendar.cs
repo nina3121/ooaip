@@ -8,12 +8,10 @@ namespace Mediator
 {
     public class Calendar
     {
-        private DateOnly _date;
         private Mediator _mediator;
 
-        public Calendar(DateOnly date, Mediator mediator)
+        public Calendar(Mediator mediator)
         {
-            this._date = date == null ? throw new ArgumentNullException(nameof(date)) : date;
             _mediator = mediator == null ? throw new ArgumentNullException(nameof(mediator)) : mediator;
         }
 

@@ -7,9 +7,9 @@ using System.Xml.Serialization;
 
 namespace Mediator
 {
-    public class CoffeeMachine
+    public class CoffeeMachineHandler
     {
-        public void CoffeeHandler(AlarmRequest request)
+        public void Handler(AlarmRequest request)
         {
             if (request.Time.Hour == 8)
             {

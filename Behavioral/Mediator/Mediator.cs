@@ -10,25 +10,25 @@ namespace Mediator
 {
     public class Mediator
     {
-        private IrrigationSystem _irrigationSystem;
-        private CoffeeMachine _coffeeMachine;
+        private IrrigationSystemHandler _irrigationSystem;
+        private CoffeeMachineHandler _coffeeMachine;
 
         public Mediator()
         {
-            _irrigationSystem = new IrrigationSystem();
-            _coffeeMachine = new CoffeeMachine();
+            _irrigationSystem = new IrrigationSystemHandler();
+            _coffeeMachine = new CoffeeMachineHandler();
         }
 
         public void Handle(IRequest request)
         {
             if (request is CalendarRequest calendarRequest)
             {
-                _irrigationSystem.IrrigationSystemHandler(calendarRequest);
+                _irrigationSystem.Handler(calendarRequest);
             }
             if (request is AlarmRequest alarmRequest)
             {
-                _coffeeMachine.CoffeeHandler(alarmRequest);
-                _irrigationSystem.IrrigationSystemHandler(alarmRequest);
+                _coffeeMachine.Handler(alarmRequest);
+                _irrigationSystem.Handler(alarmRequest);
             }
         }
     }

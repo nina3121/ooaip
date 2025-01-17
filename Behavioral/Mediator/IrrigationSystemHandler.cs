@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace Mediator
 {
-    public class IrrigationSystem
+    public class IrrigationSystemHandler
     {
-        public void IrrigationSystemHandler(CalendarRequest request)
+        public bool IsDayOff { get; set; }
+        
+        public void Handler(CalendarRequest request)
         {
-            bool IsDayOff = request.IsDayOff();
+            IsDayOff = request.Date.DayOfWeek != DayOfWeek.Saturday && request.Date.DayOfWeek != DayOfWeek.Sunday;
             if (IsDayOff)
             {
                 Console.WriteLine("watering the plants");
             }
         }
 
-        public void IrrigationSystemHandler(AlarmRequest request)
+        public void Handler(AlarmRequest request)
         {
             if (request.Time.Hour % 6 == 0)
             {
