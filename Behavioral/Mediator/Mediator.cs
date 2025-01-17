@@ -28,6 +28,7 @@ namespace Mediator
             if (request is AlarmRequest alarmRequest)
             {
                 _coffeeMachine.CoffeeHandler(alarmRequest);
+                _irrigationSystem.IrrigationSystemHandler(alarmRequest);
             }
         }
     }

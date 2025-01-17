@@ -11,7 +11,7 @@ namespace Mediator
     {
         public void CoffeeHandler(AlarmRequest request)
         {
-            if (request.GetTime().Hour == 8)
+            if (request.Time.Hour == 8)
             {
                 Console.WriteLine("making a coffee");
             }

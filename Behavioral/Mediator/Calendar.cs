@@ -17,7 +17,7 @@ namespace Mediator
             _mediator = mediator == null ? throw new ArgumentNullException(nameof(mediator)) : mediator;
         }
 
-        public void MakeARequest()
+        public void MakeRequest()
         {
             CalendarRequest calendarRequest = new CalendarRequest(DateOnly.FromDateTime(DateTime.Now));
             _mediator.Handle(calendarRequest);

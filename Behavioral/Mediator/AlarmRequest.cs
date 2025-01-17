@@ -8,16 +8,11 @@ namespace Mediator
 {
     public class AlarmRequest : IRequest
     {
-        private DateTime _time;
+        public TimeOnly Time { get; }
 
-        public AlarmRequest(DateTime time)
+        public AlarmRequest(TimeOnly time)
         {
-            _time = time;
-        }
-
-        public DateTime GetTime()
-        {
-            return _time;
+            Time = time;
         }
     }
 }

@@ -8,16 +8,16 @@ namespace Mediator
 {
     public class CalendarRequest : IRequest
     {
-        private DateOnly _date;
+        public DateOnly Date { get; }
 
         public CalendarRequest(DateOnly date)
         {
-            _date = date;   
+            Date = date;   
         }
 
         public bool IsDayOff()
         {
-            return _date.DayOfWeek != DayOfWeek.Saturday && _date.DayOfWeek != DayOfWeek.Sunday;
+            return Date.DayOfWeek != DayOfWeek.Saturday && Date.DayOfWeek != DayOfWeek.Sunday;
         }
     }
 }

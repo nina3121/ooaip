@@ -16,9 +16,9 @@ namespace Mediator
             _mediator = mediator == null ? throw new ArgumentNullException(nameof(mediator)) : mediator;
         }
 
-        public void MakeARequest()
+        public void MakeRequest()
         {
-            AlarmRequest alarmRequest = new AlarmRequest(DateTime.Now);
+            AlarmRequest alarmRequest = new AlarmRequest(TimeOnly.FromDateTime(DateTime.Now));
             _mediator.Handle(alarmRequest);
         }
     }
